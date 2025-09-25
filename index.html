@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models">
+        content="RoboHiMan: A Hierarchical Evaluation Paradigm for Compositional Generalization in Long-Horizon Manipulation">
   <meta name="keywords" content="Robotic Manipulation, Language Models">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VoxPoser</title>
+  <title>RoboHiMan</title>
+  <link rel="icon" href="media/figures/robohiman-log.png" type="image/png">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
   <script>
@@ -62,6 +63,20 @@
 
   </script>
 
+<script>
+  function updateVideo() {
+    var selected = document.getElementById("video-menu").value;
+    var videos = document.querySelectorAll("video source");
+    videos.forEach(function(v){
+      v.src = "media/exp/scaling/" + selected;
+      v.parentElement.load();
+      v.parentElement.play();
+    });
+  }
+</script>
+
+
+
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -86,32 +101,21 @@
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">VoxPoser: Composable 3D Value Maps<br>for Robotic Manipulation with Language Models</h1>
-          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.corl2023.org/">CoRL 2023 (Oral)</a></h3>
+          <h1 class="title is-1 publication-title">
+            <span class="gradient-text">RoboHiMan</span>: A Hierarchical Evaluation Paradigm for Compositional Generalization in Long-Horizon Manipulation
+          </h1>
+          <h3 class="title is-4 conference-authors">
+            <a target="_blank" href="#">Under Review</a>
+          </h3>
+          
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a target="_blank" href="https://huangwl18.github.io/">Wenlong Huang</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a target="_blank" href="https://www.chenwangjeremy.net/">Chen Wang</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a target="_blank" href="https://ai.stanford.edu/~zharu/">Ruohan Zhang</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a target="_blank" href="https://yunzhuli.github.io/">Yunzhu Li</a><sup>1, 2</sup>,
-            </span>
-            <span class="author-block">
-              <a target="_blank" href="https://jiajunwu.com/">Jiajun Wu</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a target="_blank" href="https://profiles.stanford.edu/fei-fei-li">Li Fei-Fei</a><sup>1</sup>
+              Anonymous Authors
             </span>
           </div>
-
+          
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Stanford University,</span>
-            <span class="author-block"><sup>2</sup>University of Illinois Urbana-Champaign</span>
+            <span class="author-block">Affiliations Withheld for Review</span>
           </div>
 
           <div class="column has-text-centered">
@@ -128,7 +132,7 @@
               </span>
 
             <!-- Arxiv Link. -->
-            <span class="link-block">
+            <!-- <span class="link-block">
               <a target="_blank" href="https://arxiv.org/abs/2307.05973"
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
@@ -136,7 +140,7 @@
                 </span>
                 <span>ArXiv</span>
               </a>
-            </span>
+            </span> -->
 
             <!-- Video Link. -->
             <span class="link-block">
@@ -167,7 +171,7 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-fullhd">
     <div class="hero-body">
       <div class="container">
@@ -185,87 +189,195 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
+
         <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/take-out-the-toaster-and-put-it-on-the-wooden-plate.mp4"
+            <source src="media/videos/box_in_cupboard_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
+
         <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/close-top-drawer-dist.mp4"
+            <source src="media/videos/box_out_of_cupboard_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
+
         <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/sort-trash-to-tray-dist.mp4"
+            <source src="media/videos/box_out_of_opened_drawer_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
-        <div class="item">
-           <video poster="" autoplay muted loop height="100%">
-             <source src="media/videos/open-bottle.mp4"
-                     type="video/mp4">
-           </video>
-         </div>
+
         <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/turn-on-the-lamp.mp4"
+            <source src="media/videos/close_drawer_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
+
         <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/sweep-the-trash-into-the-dustpan.mp4"
+            <source src="media/videos/broom_out_of_cupboard_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
+
         <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/set-up-the-utensils-for-my-pasta.mp4"
+            <source src="media/videos/open_drawer_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
+
         <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/unplug-charger.mp4"
+            <source src="media/videos/put_in_opened_drawer_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
-       <div class="item">
+
+        <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/get-napkin.mp4"
+            <source src="media/videos/rubbish_in_dustpan_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
-       <div class="item">
+
+        <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/hang-towel.mp4"
+            <source src="media/videos/sweep_to_dustpan_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
-       <div class="item">
+
+        <div class="item">
           <video poster="" autoplay muted loop height="100%">
-            <source src="media/videos/measure-apple.mp4"
+            <source src="media/videos/take_out_of_opened_drawer_grid.mp4"
                     type="video/mp4">
           </video>
         </div>
-        </div>
+
+       </div>
       </div>
     </div>
   </div>
 </section>
 <h2 class="subtitle has-text-centered">
-</br>
-  VoxPoser can <b>zero-shot synthesize</b> trajectories for real-world manipulation tasks with an <b>open-set</b> of free-form language instructions and an <b>open-set</b> of objects.
+  <br>
+  RoboHiMan designs 
+  <span class="red-green-text">atomic tasks with diverse perturbation factors</span> 
+  for both training and evaluation of models.
+</h2>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/box_exchange_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/put_in_and_close_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/put_two_in_different_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/sweep_and_drop_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/put_in_without_close_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/transfer_box_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/put_two_in_same_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/retrieve_and_sweep_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/take_out_and_close_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/take_two_out_of_same_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/take_two_out_of_different_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/take_out_without_close_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+       </div>
+      </div>
+    </div>
+  </div>
+</section>
+<h2 class="subtitle has-text-centered">
+  <br>
+  RoboHiMan designs <span class="blue-purple-text">long-horizon compositional skills with diverse perturbation factors</span> that can 
+  <br>
+  be accomplished through the composition of atomic skills.
 </h2>
 
 
@@ -277,15 +389,9 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Large language models (LLMs) are shown to possess a wealth of actionable knowledge that can be extracted for robot manipulation in the form of reasoning and planning.
-            Despite the progress, most still rely on pre-defined motion primitives to carry out the physical interactions with the environment, which remains a major bottleneck.
-            In this work, we aim to synthesize robot trajectories, i.e., a dense sequence of 6-DoF end-effector waypoints,
-            for a large variety of manipulation tasks given an <i>open-set</i> of instructions and an <i>open-set</i> of objects.
-            We achieve this by first observing that LLMs excel at inferring affordances and constraints given a free-form language instruction
-            More importantly, by leveraging their code-writing capabilities, they can interact with a vision-language model (VLM) to compose 3D value maps to ground the knowledge into the observation space of the agent.
-            The composed value maps are then used in a model-based planning framework to <i>zero-shot</i> synthesize closed-loop robot trajectories with robustness to dynamic perturbations.
-            We further demonstrate how the proposed framework can benefit from online experiences by efficiently learning a dynamics model for scenes that involve contact-rich interactions.
-            We present a large-scale study of the proposed method in both simulated and real-robot environments, showcasing the ability to perform a large variety of everyday manipulation tasks specified in free-form natural language.
+            Enabling robots to flexibly schedule and compose learned skills for novel long-horizon manipulation under diverse perturbations remains a core challenge. Early explorations with end-to-end VLA models show limited success, as these models struggle to generalize beyond the training distribution. Hierarchical approaches, where high-level planners generate subgoals for low-level policies, bring certain improvements but still suffer under complex perturbations, revealing limited capability in skill composition. However, existing benchmarks primarily emphasize task completion in long-horizon settings, offering little insight into compositional generalization, robustness, and the interplay between planning and execution.
+            To systematically investigate these gaps, we propose RoboHiMan, a hierarchical evaluation paradigm for compositional generalization in long-horizon manipulation. RoboHiMan introduces HiMan-Bench, a benchmark of atomic and compositional tasks under diverse perturbations, supported by a multi-level training dataset for analyzing progressive data scaling, and proposes three evaluation paradigms (vanilla, decoupled, coupled) that probe the necessity of skill composition and reveal bottlenecks in hierarchical architectures.
+            Experiments highlight clear capability gaps across representative models and architectures, pointing to directions for advancing models better suited to real-world long-horizon manipulation tasks.
           </p>
         </div>
       </div>
@@ -295,10 +401,10 @@
   </div>
 
   <!-- Paper video. -->
-  <br>
-  <br>
+  <!-- <br>
+  <br> -->
 
-  <div class="container is-max-widescreen">
+  <!-- <div class="container is-max-widescreen">
 
     <div class="rows">
       <h2 class="title is-3">Video</h2>
@@ -307,7 +413,7 @@
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
     </div>
-  </div>
+  </div> -->
 
 </section>
 
@@ -320,17 +426,36 @@
     <!-- Animation. -->
     <div class="rows is-centered ">
       <div class="row is-full-width">
-        <h2 class="title is-3"><span class="dperact">VoxPoser</span></h2>
+        <h2 class="title is-3"><span class="dperact">Overview of RoboHiMan</span></h2>
 
         <!-- Interpolating. -->
         <div class="content has-text-justified">
         <!-- <br> -->
         </div>
-        <img src="media/figures/method.jpg" class="interpolation-image" />
+        <img src="media/figures/teaser.png" class="interpolation-image" />
         </br>
         </br>
           <p class="content has-text-justified">
-            Given the RGB-D observation of the environment and a language instruction, LLMs generate code, which interacts with VLMs, to produce a sequence of 3D affordance maps and constraint maps (collectively referred to as value maps) grounded in the observation space of the robot <strong>(a)</strong>. The composed value maps then serve as objective functions for motion planners to synthesize trajectories for robot manipulation <strong>(b)</strong>. The entire process does not involve any additional training.
+            RoboHiMan Overview. To evaluate compositional generalization, RoboHiMan introduces:
+(a) HiMan-Bench with four task types: atomic (A), atomic-perturbation (AP), compositional (C), and compositional-perturbation (CP).
+(b) A hierarchical evaluation paradigm with diverse metrics and progressive training data (L1-L4), where L1 uses minimal atomic data and L4 provides larger datasets.
+(c) Extensive experiments that highlight critical performance gaps across training datasets and evaluation modes, often overlooked by prior benchmarks. Here, the notation “X → Y” denotes training on Level X and evaluation on task category Y.
+          </p>
+          
+        </br>
+        </br>
+
+        <h2 class="title is-3"><span class="dperact">Overview of Hierarchical Evaluation Protocol</span></h2>
+
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+        <!-- <br> -->
+        </div>
+        <img src="media/figures/pipeline.jpg" class="interpolation-image" />
+        </br>
+        </br>
+          <p class="content has-text-justified">
+            RoboHiMan evaluation paradigm. Three settings are considered: (1) Vanilla - the low-level policy executes tasks directly from instructions without a planner; (2) Decoupled - planner and policy are evaluated separately, using either a rule-based planner (online) or a VLM-based planner (offline); (3) Coupled - a full hierarchical setup where a VLM-based planner generates subgoals online and the low-level policy executes them.
           </p>
           
         </br>
@@ -338,48 +463,238 @@
 
         <!--/ Re-rendering. -->
 
-        <h2 class="title is-3">Interactive Visualization</h2>
+        <h2 class="title is-3">Scaling Effects of Training Data</h2>
+        <div class="columns" style="align-items: stretch; margin-top:0.2em;">
+          <!-- 左边固定的图 (25%) -->
+          <div class="column" style="flex:0 0 28%; max-width:28%; text-align:center;">
+            <img src="media/figures/atomic+composition.png" 
+                alt="Atomic and Composition" 
+                style="width:100%; height:auto; max-height:90vh; object-fit:contain; border:1px solid #ddd; border-radius:8px;">
+          </div>
 
+          <!-- 右边区域 (75%) -->
+          <div class="column" style="flex:0 0 72%; max-width:72%;">
 
+            <!-- 第一组菜单 + 四个视频 -->
+            <div style="margin-bottom:2em;">
+              <!-- <label><b>(Model) on Atomic Task</b></label> -->
+              <div style="display:flex; gap:1em; margin-bottom:1em; justify-content:center;">
+                <span style="align-self:center;">The performance of </span>
+                <div class="select is-small is-rounded">
+                  <select id="model-menu-1" onchange="updateVideoGroup1()">
+                    <option value="RVT-2">RVT-2</option>
+                    <option value="3D-Diffuser-Actor">3D-Diffuser-Actor</option>
+                    <option value="Pi0">Pi0</option>
+                    <option value="Pi0.5">Pi0.5</option>
+                  </select>
+                </div>
+                <span style="align-self:center;"> on atomic task</span>
+                <div class="select is-small is-rounded">
+                  <select id="task-menu-1" onchange="updateVideoGroup1()">
+                    <option value="box_in_cupboard">box_in_cupboard</option>
+                    <option value="box_out_of_opened_drawer">box_out_of_opened_drawer</option>
+                    <option value="close_drawer">close_drawer</option>
+                    <option value="put_in_opened_drawer">put_in_opened_drawer</option>
+                    <option value="sweep_to_dustpan">sweep_to_dustpan</option>
+                    <option value="box_out_of_cupboard">box_out_of_cupboard</option>
+                    <option value="broom_out_of_cupboard">broom_out_of_cupboard</option>
+                    <option value="open_drawer">open_drawer</option>
+                    <option value="rubbish_in_dustpan">rubbish_in_dustpan</option>
+                    <option value="take_out_of_opened_drawer">take_out_of_opened_drawer</option>
+                  </select>
+                </div>
+              </div>
 
-        <div class="columns">
-          <div class="column has-text-centered">
-
-            Visualize value maps for   
-            <div class="select is-small is-rounded">     
-              <select id="interative-menu" onchange="updateInteractive()">
-              <option value="hang-towel-1" selected="selected">"Hang towel on rack"</option>
-              <option value="close-drawer">"Close the top drawer."</option>
-              <option value="get-napkin">"Take out a napkin."</option>
-              <option value="open-bottle">"Turn open vitamin bottle."</option>
-              </select>
+              <!-- 视频网格 -->
+              <div id="video-grid-1" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1em;">
+                <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L1</p></div>
+                <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L2</p></div>
+                <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L3</p></div>
+                <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L4</p></div>
+              </div>
             </div>
-          </div>
 
+            <!-- 第二组菜单 + 四个视频 -->
+            <div>
+              <!-- <label><b>(Model) on Compositional Task</b></label> -->
+              <div style="display:flex; gap:1em; margin-bottom:1em; justify-content:center;">
+                <span style="align-self:center;">The performance of </span>
+                <div class="select is-small is-rounded">
+                  <select id="model-menu-2" onchange="updateVideoGroup2()">
+                    <option value="RVT-2">RVT-2</option>
+                    <option value="3D-Diffuser-Actor">3D-Diffuser-Actor</option>
+                    <option value="Pi0">Pi0</option>
+                    <option value="Pi0.5">Pi0.5</option>
+                  </select>
+                </div>
+                <span style="align-self:center;"> on Compositional task</span>
+                <div class="select is-small is-rounded">
+                  <select id="task-menu-2" onchange="updateVideoGroup2()">
+                    <option value="box_exchange">box_exchange</option>
+                    <option value="put_in_and_close">put_in_and_close</option>
+                    <option value="put_in_without_close">put_in_without_close</option>
+                    <option value="put_two_in_different">put_two_in_different</option>
+                    <option value="put_two_in_same">put_two_in_same</option>
+                    <option value="retrieve_and_sweep">retrieve_and_sweep</option>
+                    <option value="sweep_and_drop">sweep_and_drop</option>
+                    <option value="take_out_and_close">take_out_and_close</option>
+                    <option value="take_out_without_close">take_out_without_close</option>
+                    <option value="take_two_out_of_different">take_two_out_of_different</option>
+                    <option value="take_two_out_of_same">take_two_out_of_same</option>
+                    <option value="transfer_box">transfer_box</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 视频网格 -->
+              <div id="video-grid-2" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1em;">
+                <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L1</p></div>
+                <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L2</p></div>
+                <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L3</p></div>
+                <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L4</p></div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <div class="columns">
-          <div class="column is-half has-text-centered">
-            <p style="text-align:center;">
-              <video id="interactive-video" width="100%" height="100%" controls autoplay loop muted>
-                <source src="media/videos/close-drawer.mp4" type="video/mp4">
-              </video>
-            </p>
-          </div>
-          <div class="column has-text-centered">
-            <iframe id="interactive-html-1" src="media/interactive/close-drawer.html" width="100%" height="300" frameborder="0"></iframe>
-            <p style="text-align:center;">
-              Interactive Value Map 1
-            </p>
-          </div>
-          <div class="column has-text-centered" id="second-iframe-container">
-            <iframe id="interactive-html-2" src="media/interactive/close-drawer.html" width="100%" height="300" frameborder="0"></iframe>
-            <p style="text-align:center;">
-              Interactive Value Map 2
-            </p>
-          </div>
-        </div>
-        
+
+  
+        <script>
+          const SR_DATA = {
+            // ----------- Atomic tasks -----------
+            "RVT-2/box_in_cupboard": ["1","0","1","1"],
+            "RVT-2/box_out_of_opened_drawer": ["0","1","1","0"],
+            "RVT-2/close_drawer": ["1","1","0","0"],
+            "RVT-2/put_in_opened_drawer": ["1","0","0","1"],
+            "RVT-2/sweep_to_dustpan": ["0","0","1","1"],
+            "RVT-2/box_out_of_cupboard": ["1","1","1","0"],
+            "RVT-2/broom_out_of_cupboard": ["0","1","0","1"],
+            "RVT-2/open_drawer": ["1","0","1","0"],
+            "RVT-2/rubbish_in_dustpan": ["1","1","0","1"],
+            "RVT-2/take_out_of_opened_drawer": ["0","1","1","0"],
+          
+            "3D-Diffuser-Actor/box_in_cupboard": ["1","1","0","1"],
+            "3D-Diffuser-Actor/box_out_of_opened_drawer": ["0","0","1","0"],
+            "3D-Diffuser-Actor/close_drawer": ["1","1","1","0"],
+            "3D-Diffuser-Actor/put_in_opened_drawer": ["0","1","0","1"],
+            "3D-Diffuser-Actor/sweep_to_dustpan": ["1","0","1","1"],
+            "3D-Diffuser-Actor/box_out_of_cupboard": ["0","1","1","0"],
+            "3D-Diffuser-Actor/broom_out_of_cupboard": ["1","1","0","0"],
+            "3D-Diffuser-Actor/open_drawer": ["0","1","0","1"],
+            "3D-Diffuser-Actor/rubbish_in_dustpan": ["1","0","1","0"],
+            "3D-Diffuser-Actor/take_out_of_opened_drawer": ["0","1","1","1"],
+          
+            "Pi0/box_in_cupboard": ["1","0","0","1"],
+            "Pi0/box_out_of_opened_drawer": ["1","1","0","1"],
+            "Pi0/close_drawer": ["0","0","1","1"],
+            "Pi0/put_in_opened_drawer": ["1","1","0","0"],
+            "Pi0/sweep_to_dustpan": ["1","0","1","1"],
+            "Pi0/box_out_of_cupboard": ["0","1","0","1"],
+            "Pi0/broom_out_of_cupboard": ["1","0","0","1"],
+            "Pi0/open_drawer": ["0","1","1","0"],
+            "Pi0/rubbish_in_dustpan": ["1","0","1","0"],
+            "Pi0/take_out_of_opened_drawer": ["1","1","0","1"],
+          
+            "Pi0.5/box_in_cupboard": ["0","0","1","1"],
+            "Pi0.5/box_out_of_opened_drawer": ["1","1","0","0"],
+            "Pi0.5/close_drawer": ["0","1","1","1"],
+            "Pi0.5/put_in_opened_drawer": ["1","0","0","1"],
+            "Pi0.5/sweep_to_dustpan": ["0","1","1","0"],
+            "Pi0.5/box_out_of_cupboard": ["1","1","0","1"],
+            "Pi0.5/broom_out_of_cupboard": ["0","0","1","1"],
+            "Pi0.5/open_drawer": ["1","0","1","0"],
+            "Pi0.5/rubbish_in_dustpan": ["0","1","0","1"],
+            "Pi0.5/take_out_of_opened_drawer": ["1","0","1","1"],
+          
+            // ----------- Compositional tasks -----------
+            "RVT-2/box_exchange": ["1","0","1","0"],
+            "RVT-2/put_in_and_close": ["1","1","0","1"],
+            "RVT-2/put_in_without_close": ["0","0","1","1"],
+            "RVT-2/put_two_in_different": ["1","0","1","1"],
+            "RVT-2/put_two_in_same": ["0","1","0","0"],
+            "RVT-2/retrieve_and_sweep": ["1","1","1","0"],
+            "RVT-2/sweep_and_drop": ["0","0","1","0"],
+            "RVT-2/take_out_and_close": ["1","1","0","1"],
+            "RVT-2/take_out_without_close": ["0","1","1","0"],
+            "RVT-2/take_two_out_of_different": ["1","0","1","0"],
+            "RVT-2/take_two_out_of_same": ["0","1","0","1"],
+            "RVT-2/transfer_box": ["1","1","1","1"],
+          
+            "3D-Diffuser-Actor/box_exchange": ["0","1","1","0"],
+            "3D-Diffuser-Actor/put_in_and_close": ["1","0","0","1"],
+            "3D-Diffuser-Actor/put_in_without_close": ["0","1","1","1"],
+            "3D-Diffuser-Actor/put_two_in_different": ["1","0","0","0"],
+            "3D-Diffuser-Actor/put_two_in_same": ["1","1","0","1"],
+            "3D-Diffuser-Actor/retrieve_and_sweep": ["0","0","1","1"],
+            "3D-Diffuser-Actor/sweep_and_drop": ["1","1","0","0"],
+            "3D-Diffuser-Actor/take_out_and_close": ["0","1","0","1"],
+            "3D-Diffuser-Actor/take_out_without_close": ["1","0","1","0"],
+            "3D-Diffuser-Actor/take_two_out_of_different": ["0","1","1","0"],
+            "3D-Diffuser-Actor/take_two_out_of_same": ["1","0","1","1"],
+            "3D-Diffuser-Actor/transfer_box": ["0","1","0","1"],
+          
+            "Pi0/box_exchange": ["1","1","0","0"],
+            "Pi0/put_in_and_close": ["0","1","1","0"],
+            "Pi0/put_in_without_close": ["1","0","1","1"],
+            "Pi0/put_two_in_different": ["0","0","0","1"],
+            "Pi0/put_two_in_same": ["1","1","1","0"],
+            "Pi0/retrieve_and_sweep": ["0","1","0","1"],
+            "Pi0/sweep_and_drop": ["1","0","1","0"],
+            "Pi0/take_out_and_close": ["0","0","1","1"],
+            "Pi0/take_out_without_close": ["1","1","0","0"],
+            "Pi0/take_two_out_of_different": ["0","1","1","0"],
+            "Pi0/take_two_out_of_same": ["1","0","0","1"],
+            "Pi0/transfer_box": ["0","1","1","1"],
+          
+            "Pi0.5/box_exchange": ["0","0","1","0"],
+            "Pi0.5/put_in_and_close": ["1","1","0","1"],
+            "Pi0.5/put_in_without_close": ["0","1","1","0"],
+            "Pi0.5/put_two_in_different": ["1","0","0","1"],
+            "Pi0.5/put_two_in_same": ["0","1","0","0"],
+            "Pi0.5/retrieve_and_sweep": ["1","0","1","1"],
+            "Pi0.5/sweep_and_drop": ["0","0","1","0"],
+            "Pi0.5/take_out_and_close": ["1","1","0","0"],
+            "Pi0.5/take_out_without_close": ["0","1","1","1"],
+            "Pi0.5/take_two_out_of_different": ["1","0","0","1"],
+            "Pi0.5/take_two_out_of_same": ["0","1","1","0"],
+            "Pi0.5/transfer_box": ["1","0","1","0"]
+          };
+
+          async function updateVideoGroup(groupId, modelId, taskId) {
+          const model = document.getElementById(modelId).value;
+          const task = document.getElementById(taskId).value;
+          const grid = document.getElementById(groupId).children;
+
+          // 从内置 JSON 里取状态
+          const key = `${model}/${task}`;
+          let srStatus = SR_DATA[key] || ["0", "0", "0", "0"];
+
+          for (let i = 0; i < 4; i++) {
+            const videoFile = `media/exp/scaling/${model}/${task}/L${i+1}.mp4`;
+            grid[i].querySelector("source").src = videoFile;
+            grid[i].querySelector("video").load();
+
+            // 更新状态文本
+            const success = srStatus[i] === "1";
+            const label = grid[i].querySelector("p");
+            label.innerHTML = `L${i+1} <span style="color:${success ? 'green' : 'red'};">(${success ? 'Success' : 'Fail'})</span>`;
+          }
+        }
+
+        function updateVideoGroup1() {
+          updateVideoGroup("video-grid-1", "model-menu-1", "task-menu-1");
+        }
+
+        function updateVideoGroup2() {
+          updateVideoGroup("video-grid-2", "model-menu-2", "task-menu-2");
+        }
+
+        // 默认初始化
+        updateVideoGroup1();
+        updateVideoGroup2();
+        </script>
+
         
         
     </div>
@@ -390,115 +705,280 @@
 <section class="section">
   <div class="container is-max-widescreen">
 
-    <div class="rows">
-      <h2 class="title is-3">Execution under Disturbances</h2>
+    <h2 class="title is-3">Compositional Task Completion under Disturbances</h2>
       
-      <p class="content has-text-justified">
-        Because the language model output stays the same throughout the task, we can cache its output and re-evaluate the generated code using closed-loop visual feedback, which enables fast replanning using MPC. This enables VoxPoser to be robust to online disturbances.
-      </p>
-      
-      <div class="columns">
-        <div class="column has-text-centered">
-          <video id="dist1"
-            controls
-            muted
-            autoplay
-            loop
-            width="99%">
-            <source src="media/videos/sort-trash-to-tray-dist.mp4" 
-            type="video/mp4">
-          </video>
-          <p style="text-align:center">
-            "Sort the paper trash into the blue tray."
-          </p>
-        </div>
-    
-        <div class="column has-text-centered">
-          <video id="dist2"
-            controls
-            muted
-            autoplay
-            loop
-            width="99%">
-            <source src="media/videos/close-top-drawer-dist.mp4" 
-            type="video/mp4">
-          </video>
-          <p style="text-align:center">
-            "Close the top drawer."
-          </p>
-        </div>
-  </div>
-  </div>
-</section>
+    <p class="content has-text-justified">
+      Because the language model output stays the same throughout the task, we can cache its output and re-evaluate the generated code using closed-loop visual feedback, which enables fast replanning using MPC. This enables VoxPoser to be robust to online disturbances.
+    </p>
 
-<section class="section">
-  <div class="container is-max-widescreen">
-
-    <div class="rows">
-      <h2 class="title is-3">Emergent Behavioral Capabilities</h2>
-      
-      <p class="content has-text-justified">
-        <li><strong>Behavioral Commonsense Reasoning</strong>: During a task where robot is setting the table, the user can specify behavioral preferences such as “I am left-handed”, which requires the robot to comprehend its meaning in the context of the task. VoxPoser decides that it should move the fork from the right side of the bowl to the left side.</li>
-        <li><strong>Fine-grained Language Correction</strong>: For tasks that require high precision such as “covering the teapot with the lid”, the user can give precise instructions to the robot such as “you’re off by 1cm”. VoxPoser similarly adjusts its action based on the feedback.</li>
-        <li><strong>Multi-step Visual Program</strong>: Given a task “open the drawer precisely by half” where there is insufficient information because object models are not available, VoxPoser can come up with multi-step manipulation strategies based on visual feedback that first opens the drawer fully while recording handle displacement, then close it back to the midpoint to satisfy the requirement.</li>
-      </p>
-      <br>
-      <div style="text-align: center;">
-        <img src="media/figures/emergent.jpg" class="interpolation-image" style="width: 100%; height: auto;"/>
+    <!-- 三张雷达图 -->
+    <div class="columns" style="margin-top:1em; margin-bottom:1em; text-align:center;">
+      <div class="column">
+        <img src="media/figures/radar1.jpg" alt="Radar 1" style="width:100%; height:auto; max-height:40vh; object-fit:contain;">
+      </div>
+      <div class="column">
+        <img src="media/figures/radar2.jpg" alt="Radar 2" style="width:100%; height:auto; max-height:40vh; object-fit:contain;">
+      </div>
+      <div class="column">
+        <img src="media/figures/radar3.jpg" alt="Radar 3" style="width:100%; height:auto; max-height:40vh; object-fit:contain;">
       </div>
     </div>
 
-  </div>
+    <!-- 四个视频一行 -->
+    <div class="columns" style="margin-top:1em; text-align:center;">
+      <div id="video-grid-3" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1em;">
+        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L1</p></div>
+        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L2</p></div>
+        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L3</p></div>
+        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L4</p></div>
+      </div>
+    </div>
 
+    <!-- 下拉选项 -->
+    <div style="margin-top:1.5em; text-align:center;">
+      <span style="align-self:center;">The performance of </span>
+        <div class="select is-small is-rounded">
+          <select id="model-menu-3" onchange="updateVideoGroup3()">
+            <option value="RVT-2">RVT-2</option>
+            <option value="3D-Diffuser-Actor">3D-Diffuser-Actor</option>
+            <option value="Pi0">Pi0</option>
+            <option value="Pi0.5">Pi0.5</option>
+          </select>
+        </div>
+        <span style="align-self:center;"> on Factor</span>
+        <div class="select is-small is-rounded">
+          <select id="factor-menu-3" onchange="updateVideoGroup3()">
+            <option value="box_in_cupboard">box_in_cupboard</option>
+            <option value="put_in_and_close">put_in_and_close</option>
+            <option value="put_in_without_close">put_in_without_close</option>
+            <option value="put_two_in_different">put_two_in_different</option>
+            <option value="put_two_in_same">put_two_in_same</option>
+            <option value="retrieve_and_sweep">retrieve_and_sweep</option>
+            <option value="sweep_and_drop">sweep_and_drop</option>
+            <option value="take_out_and_close">take_out_and_close</option>
+            <option value="take_out_without_close">take_out_without_close</option>
+            <option value="take_two_out_of_different">take_two_out_of_different</option>
+            <option value="take_two_out_of_same">take_two_out_of_same</option>
+            <option value="transfer_box">transfer_box</option>
+          </select>
+        </div>
+    </div>
+
+    <script>
+      const SR_DATA_RARAR = {
+        // ----------- Compositional tasks -----------
+        "RVT-2/box_in_cupboard": ["1","0","1","0"],
+        "RVT-2/put_in_and_close": ["1","1","0","1"],
+        "RVT-2/put_in_without_close": ["0","0","1","1"],
+        "RVT-2/put_two_in_different": ["1","0","1","1"],
+        "RVT-2/put_two_in_same": ["0","1","0","0"],
+        "RVT-2/retrieve_and_sweep": ["1","1","1","0"],
+        "RVT-2/sweep_and_drop": ["0","0","1","0"],
+        "RVT-2/take_out_and_close": ["1","1","0","1"],
+        "RVT-2/take_out_without_close": ["0","1","1","0"],
+        "RVT-2/take_two_out_of_different": ["1","0","1","0"],
+        "RVT-2/take_two_out_of_same": ["0","1","0","1"],
+        "RVT-2/transfer_box": ["1","1","1","1"],
+      
+        "3D-Diffuser-Actor/box_exchange": ["0","1","1","0"],
+        "3D-Diffuser-Actor/put_in_and_close": ["1","0","0","1"],
+        "3D-Diffuser-Actor/put_in_without_close": ["0","1","1","1"],
+        "3D-Diffuser-Actor/put_two_in_different": ["1","0","0","0"],
+        "3D-Diffuser-Actor/put_two_in_same": ["1","1","0","1"],
+        "3D-Diffuser-Actor/retrieve_and_sweep": ["0","0","1","1"],
+        "3D-Diffuser-Actor/sweep_and_drop": ["1","1","0","0"],
+        "3D-Diffuser-Actor/take_out_and_close": ["0","1","0","1"],
+        "3D-Diffuser-Actor/take_out_without_close": ["1","0","1","0"],
+        "3D-Diffuser-Actor/take_two_out_of_different": ["0","1","1","0"],
+        "3D-Diffuser-Actor/take_two_out_of_same": ["1","0","1","1"],
+        "3D-Diffuser-Actor/transfer_box": ["0","1","0","1"],
+      
+        "Pi0/box_exchange": ["1","1","0","0"],
+        "Pi0/put_in_and_close": ["0","1","1","0"],
+        "Pi0/put_in_without_close": ["1","0","1","1"],
+        "Pi0/put_two_in_different": ["0","0","0","1"],
+        "Pi0/put_two_in_same": ["1","1","1","0"],
+        "Pi0/retrieve_and_sweep": ["0","1","0","1"],
+        "Pi0/sweep_and_drop": ["1","0","1","0"],
+        "Pi0/take_out_and_close": ["0","0","1","1"],
+        "Pi0/take_out_without_close": ["1","1","0","0"],
+        "Pi0/take_two_out_of_different": ["0","1","1","0"],
+        "Pi0/take_two_out_of_same": ["1","0","0","1"],
+        "Pi0/transfer_box": ["0","1","1","1"],
+      
+        "Pi0.5/box_exchange": ["0","0","1","0"],
+        "Pi0.5/put_in_and_close": ["1","1","0","1"],
+        "Pi0.5/put_in_without_close": ["0","1","1","0"],
+        "Pi0.5/put_two_in_different": ["1","0","0","1"],
+        "Pi0.5/put_two_in_same": ["0","1","0","0"],
+        "Pi0.5/retrieve_and_sweep": ["1","0","1","1"],
+        "Pi0.5/sweep_and_drop": ["0","0","1","0"],
+        "Pi0.5/take_out_and_close": ["1","1","0","0"],
+        "Pi0.5/take_out_without_close": ["0","1","1","1"],
+        "Pi0.5/take_two_out_of_different": ["1","0","0","1"],
+        "Pi0.5/take_two_out_of_same": ["0","1","1","0"],
+        "Pi0.5/transfer_box": ["1","0","1","0"]
+      };
+  
+      async function updateVideoGroupPerturbations(groupId, modelId, factorId) {
+      const model = document.getElementById(modelId).value;
+      const factor = document.getElementById(factorId).value;
+      const grid = document.getElementById(groupId).children;
+  
+      // 从内置 JSON 里取状态
+      const key = `${model}/${factor}`;
+      let srStatus = SR_DATA_RARAR[key] || ["0", "0", "0", "0"];
+  
+      for (let i = 0; i < 4; i++) {
+        const videoFile = `media/exp/scaling/${model}/${factor}/L${i+1}.mp4`;
+        grid[i].querySelector("source").src = videoFile;
+        grid[i].querySelector("video").load();
+  
+        // 更新状态文本
+        const success = srStatus[i] === "1";
+        const label = grid[i].querySelector("p");
+        label.innerHTML = `L${i+1} <span style="color:${success ? 'green' : 'red'};">(${success ? 'Success' : 'Fail'})</span>`;
+      }
+    }
+  
+    function updateVideoGroup3() {
+      updateVideoGroupPerturbations("video-grid-3", "model-menu-3", "factor-menu-3");
+    }
+  
+    // 默认初始化
+    updateVideoGroup3();
+    </script>
+  
+
+  </div>
 </section>
+
 
 <section class="section">
   <div class="container is-max-widescreen">
-  <div class="row">
-    <h2 class="title is-3">
-      Prompts
-    </h2>
+
+    <div class="rows">
+      <h2 class="title is-3">Bottlenecks in Hierarchical Architecturess</h2>
+      
+      <p class="content has-text-justified">
+        <li><strong>Behavioral Commonsense Reasoning</strong>: During a task where robot is setting the table, the user can specify behavioral preferences such as “I am left-handed”, which requires the robot to comprehend its meaning in the context of the task. VoxPoser decides that it should move the fork from the right side of the bowl to the left side.</li>
+      </p>
+      <br>
+      <div style="text-align: center;">
+        <img src="media/figures/offline_evaluation.png" class="interpolation-image" style="width: 100%; height: auto;"/>
+      </div>
+    </div>
+
     <p class="content has-text-justified">
-        Prompts in Real-World Environments:
-        <br>
-        <!-- https://vosposer-anon.github.io/ -->
-        <a href="prompts/real_planner_prompt.txt">Planner</a> |
-        <a href="prompts/real_composer_prompt.txt">Composer</a> |
-        <a href="prompts/real_parse_query_obj_prompt.txt">Parse Query Object</a> |
-        <a href="prompts/real_get_affordance_map_prompt.txt">Get Affordance Maps</a> |
-        <a href="prompts/real_get_avoidance_map_prompt.txt">Get Avoidance Maps</a> |
-        <a href="prompts/real_get_rotation_map_prompt.txt">Get Rotation Maps</a> |
-        <a href="prompts/real_get_velocity_map_prompt.txt">Get Velocity Maps</a> |
-        <a href="prompts/real_get_gripper_map_prompt.txt">Get Gripper Maps</a>
+      <li><strong>Behavioral Commonsense Reasoning</strong>: During a task where robot is setting the table, the user can specify behavioral preferences such as “I am left-handed”, which requires the robot to comprehend its meaning in the context of the task. VoxPoser decides that it should move the fork from the right side of the bowl to the left side.</li>
     </p>
-    <p class="content has-text-justified">
-        Prompts in Simulation Environments (planners are not used in simulation):
-        <br>
-        <a href="prompts/sim_composer_prompt.txt">Composer</a> |
-        <a href="prompts/sim_parse_query_obj_prompt.txt">Parse Query Object</a> |
-        <a href="prompts/sim_get_affordance_map_prompt.txt">Get Affordance Maps</a> |
-        <a href="prompts/sim_get_avoidance_map_prompt.txt">Get Avoidance Maps</a> |
-        <a href="prompts/sim_get_rotation_map_prompt.txt">Get Rotation Maps</a> |
-        <a href="prompts/sim_get_velocity_map_prompt.txt">Get Velocity Maps</a> |
-        <a href="prompts/sim_get_gripper_map_prompt.txt">Get Gripper Maps</a>
-    </p>
+
+    <br>
+    <!-- 三个视频一行 -->
+    <div style="margin-top:1em; text-align:center; width:100%;">
+      <div id="video-grid-4" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1em; width:100%;">
+        <div><video controls autoplay loop muted style="width:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">Vanilla</p></div>
+        <div><video controls autoplay loop muted style="width:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">Rule-based</p></div>
+        <div><video controls autoplay loop muted style="width:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">VLM-based</p></div>
+      </div>
+    </div>
+
+    <!-- 下拉选项 -->
+    <div style="margin-top:1.5em; text-align:center;">
+      <span style="align-self:center;">The performance </span>
+        <span style="align-self:center;"> on Task</span>
+        <div class="select is-small is-rounded">
+          <select id="task-menu-4" onchange="updateVideoGroup4()">
+            <option value="box_in_cupboard">box_in_cupboard</option>
+            <option value="box_out_of_opened_drawer">box_out_of_opened_drawer</option>
+            <option value="close_drawer">close_drawer</option>
+            <option value="put_in_opened_drawer">put_in_opened_drawer</option>
+            <option value="sweep_to_dustpan">sweep_to_dustpan</option>
+            <option value="box_out_of_cupboard">box_out_of_cupboard</option>
+            <option value="broom_out_of_cupboard">broom_out_of_cupboard</option>
+            <option value="open_drawer">open_drawer</option>
+            <option value="rubbish_in_dustpan">rubbish_in_dustpan</option>
+            <option value="take_out_of_opened_drawer">take_out_of_opened_drawer</option>
+            <option value="box_in_cupboard">box_in_cupboard</option>
+            <option value="put_in_and_close">put_in_and_close</option>
+            <option value="put_in_without_close">put_in_without_close</option>
+            <option value="put_two_in_different">put_two_in_different</option>
+            <option value="put_two_in_same">put_two_in_same</option>
+            <option value="retrieve_and_sweep">retrieve_and_sweep</option>
+            <option value="sweep_and_drop">sweep_and_drop</option>
+            <option value="take_out_and_close">take_out_and_close</option>
+            <option value="take_out_without_close">take_out_without_close</option>
+            <option value="take_two_out_of_different">take_two_out_of_different</option>
+            <option value="take_two_out_of_same">take_two_out_of_same</option>
+            <option value="transfer_box">transfer_box</option>
+          </select>
+        </div>
+    </div>
+
+    <script>
+      const SR_DATA_BOTTLENECKS = {
+        // ----------- Bottlenecks tasks -----------
+        "Vanilla/box_in_cupboard": ["1","0","1","0"],
+
+        "Rule-based/box_in_cupboard": ["1","0","1","0"],
+
+        "VLM-based/box_in_cupboard": ["1","0","1","0"],
+      };
+  
+      async function updateVideoGroupBottlenecks(groupId, mode, taskId) {
+      const task = document.getElementById(taskId).value;
+      const grid = document.getElementById(groupId).children;
+  
+      // 从内置 JSON 里取状态
+      const key = `${mode}/${task}`;
+      let srStatus = SR_DATA_BOTTLENECKS[key] || ["0", "0", "0"];
+  
+      const videoFile = `media/exp/bottlenecks/${mode}/${task}.mp4`;
+      
+      if (mode === "Vanilla") {
+        i = 0;
+      } else if (mode === "Rule-based") {
+        i = 1;
+      } else if (mode === "VLM-based") {
+        i = 2;
+      }
+
+      grid[i].querySelector("source").src = videoFile;
+      grid[i].querySelector("video").load();
+
+      // 更新状态文本
+      const success = srStatus[i] === "1";
+      const label = grid[i].querySelector("p");
+      label.innerHTML = `mode: ${mode} <span style="color:${success ? 'green' : 'red'};">(${success ? 'Success' : 'Fail'})</span>`;
+    }
+  
+    function updateVideoGroup4() {
+      updateVideoGroupBottlenecks("video-grid-4", "Vanilla", "task-menu-4");
+      updateVideoGroupBottlenecks("video-grid-4", "Rule-based", "task-menu-4");
+      updateVideoGroupBottlenecks("video-grid-4", "VLM-based", "task-menu-4");
+    }
+  
+    // 默认初始化
+    updateVideoGroup4();
+    </script>
+
   </div>
-  </div>
+
 </section>
+
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-widescreen content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{huang2023voxposer,
-      title={VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models},
-      author={Huang, Wenlong and Wang, Chen and Zhang, Ruohan and Li, Yunzhu and Wu, Jiajun and Fei-Fei, Li},
-      journal={arXiv preprint arXiv:2307.05973},
-      year={2023}
-    }</code></pre>
+    <pre><code>@article{anonymous2025robohiman,
+  title={RoboHiMan: A Hierarchical Evaluation Paradigm for Compositional Generalization in Long-Horizon Manipulation},
+  author={Anonymous},
+  journal={Under Review},
+  year={2025}
+}</code></pre>
   </div>
 </section>
-
 
 <footer class="footer">
   <div class="container">
@@ -506,7 +986,7 @@
       <div class="column">
         <div class="content has-text-centered">
           <p>
-            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://peract.github.io/">PerAct</a>. 
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>, <a href="https://voxposer.github.io/">Voxposer</a> and <a href="https://peract.github.io/">PerAct</a>. 
           </p>
         </div>
       </div>

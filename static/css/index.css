@@ -186,3 +186,21 @@ body {
   text-align: justify;
 }
 
+.gradient-text {
+  background: linear-gradient(90deg, red, green, blue, purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.red-green-text {
+  background: linear-gradient(90deg, red, rgb(7, 204, 7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blue-purple-text {
+  background: linear-gradient(90deg, blue, rgb(219, 4, 219));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
