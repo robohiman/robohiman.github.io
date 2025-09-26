@@ -122,7 +122,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a target="_blank" href="voxposer.pdf"
+                <a target="_blank" href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -144,7 +144,7 @@
 
             <!-- Video Link. -->
             <span class="link-block">
-              <a target="_blank" href="https://youtu.be/Yvn4eR05A3M"
+              <a target="_blank" href=""
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <i class="fab fa-youtube"></i>
@@ -155,7 +155,7 @@
 
             <!-- Code Link. -->
             <span class="link-block">
-              <a target="_blank" href="https://github.com/huangwl18/VoxPoser"
+              <a target="_blank" href=""
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <i class="fab fa-github"></i>
@@ -464,16 +464,21 @@
         <!--/ Re-rendering. -->
 
         <h2 class="title is-3">Scaling Effects of Training Data</h2>
+        <p class="content has-text-justified">
+          Scaling atomic-skill data improves atomic performance, and since robust atomic execution is a prerequisite, it also benefits compositional tasks.<br>
+          Increasing both the quantity and diversity of compositional-skill training data further enhances model performance on compositional tasks. However, the overall success rate remains low, even though all compositional tasks can, in principle, be solved by combining the atomic skills the model has learned.
+        </p>
+        
         <div class="columns" style="align-items: stretch; margin-top:0.2em;">
           <!-- 左边固定的图 (25%) -->
-          <div class="column" style="flex:0 0 28%; max-width:28%; text-align:center;">
+          <div class="column" style="flex:0 0 27%; max-width:27%; text-align:center;">
             <img src="media/figures/atomic+composition.png" 
                 alt="Atomic and Composition" 
                 style="width:100%; height:auto; max-height:90vh; object-fit:contain; border:1px solid #ddd; border-radius:8px;">
           </div>
 
           <!-- 右边区域 (75%) -->
-          <div class="column" style="flex:0 0 72%; max-width:72%;">
+          <div class="column" style="flex:0 0 73%; max-width:73%;">
 
             <!-- 第一组菜单 + 四个视频 -->
             <div style="margin-bottom:2em;">
@@ -482,10 +487,10 @@
                 <span style="align-self:center;">The performance of </span>
                 <div class="select is-small is-rounded">
                   <select id="model-menu-1" onchange="updateVideoGroup1()">
-                    <option value="RVT-2">RVT-2</option>
-                    <option value="3D-Diffuser-Actor">3D-Diffuser-Actor</option>
                     <option value="Pi0">Pi0</option>
                     <option value="Pi0.5">Pi0.5</option>
+                    <option value="RVT-2">RVT-2</option>
+                    <option value="3D-Diffuser-Actor">3D-Diffuser-Actor</option>
                   </select>
                 </div>
                 <span style="align-self:center;"> on atomic task</span>
@@ -521,10 +526,10 @@
                 <span style="align-self:center;">The performance of </span>
                 <div class="select is-small is-rounded">
                   <select id="model-menu-2" onchange="updateVideoGroup2()">
-                    <option value="RVT-2">RVT-2</option>
-                    <option value="3D-Diffuser-Actor">3D-Diffuser-Actor</option>
                     <option value="Pi0">Pi0</option>
                     <option value="Pi0.5">Pi0.5</option>
+                    <option value="RVT-2">RVT-2</option>
+                    <option value="3D-Diffuser-Actor">3D-Diffuser-Actor</option>
                   </select>
                 </div>
                 <span style="align-self:center;"> on Compositional task</span>
@@ -563,102 +568,102 @@
         <script>
           const SR_DATA = {
             // ----------- Atomic tasks -----------
-            "RVT-2/box_in_cupboard": ["1","0","1","1"],
-            "RVT-2/box_out_of_opened_drawer": ["0","1","1","0"],
-            "RVT-2/close_drawer": ["1","1","0","0"],
-            "RVT-2/put_in_opened_drawer": ["1","0","0","1"],
-            "RVT-2/sweep_to_dustpan": ["0","0","1","1"],
-            "RVT-2/box_out_of_cupboard": ["1","1","1","0"],
-            "RVT-2/broom_out_of_cupboard": ["0","1","0","1"],
-            "RVT-2/open_drawer": ["1","0","1","0"],
-            "RVT-2/rubbish_in_dustpan": ["1","1","0","1"],
-            "RVT-2/take_out_of_opened_drawer": ["0","1","1","0"],
+            "RVT-2/box_in_cupboard": ["0","1","0","0"],
+            "RVT-2/box_out_of_opened_drawer": ["1","1","1","1"],
+            "RVT-2/close_drawer": ["1","1","1","1"], 
+            "RVT-2/put_in_opened_drawer": ["1","1","1","1"],
+            "RVT-2/sweep_to_dustpan": ["0","1","0","0"],
+            "RVT-2/box_out_of_cupboard": ["1","1","1","1"], 
+            "RVT-2/broom_out_of_cupboard": ["1","1","1","1"],
+            "RVT-2/open_drawer": ["1","1","1","1"],
+            "RVT-2/rubbish_in_dustpan": ["0","1","1","1"],
+            "RVT-2/take_out_of_opened_drawer": ["1","1","1","1"],
           
-            "3D-Diffuser-Actor/box_in_cupboard": ["1","1","0","1"],
-            "3D-Diffuser-Actor/box_out_of_opened_drawer": ["0","0","1","0"],
-            "3D-Diffuser-Actor/close_drawer": ["1","1","1","0"],
-            "3D-Diffuser-Actor/put_in_opened_drawer": ["0","1","0","1"],
-            "3D-Diffuser-Actor/sweep_to_dustpan": ["1","0","1","1"],
-            "3D-Diffuser-Actor/box_out_of_cupboard": ["0","1","1","0"],
-            "3D-Diffuser-Actor/broom_out_of_cupboard": ["1","1","0","0"],
-            "3D-Diffuser-Actor/open_drawer": ["0","1","0","1"],
-            "3D-Diffuser-Actor/rubbish_in_dustpan": ["1","0","1","0"],
+            "3D-Diffuser-Actor/box_in_cupboard": ["1","1","1","0"],
+            "3D-Diffuser-Actor/box_out_of_opened_drawer": ["1","1","1","1"],
+            "3D-Diffuser-Actor/close_drawer": ["1","1","1","1"],
+            "3D-Diffuser-Actor/put_in_opened_drawer": ["1","1","1","1"],
+            "3D-Diffuser-Actor/sweep_to_dustpan": ["0","1","1","1"],
+            "3D-Diffuser-Actor/box_out_of_cupboard": ["1","1","1","1"],
+            "3D-Diffuser-Actor/broom_out_of_cupboard": ["0","1","1","0"],
+            "3D-Diffuser-Actor/open_drawer": ["1","1","1","1"],
+            "3D-Diffuser-Actor/rubbish_in_dustpan": ["1","1","1","1"],
             "3D-Diffuser-Actor/take_out_of_opened_drawer": ["0","1","1","1"],
           
-            "Pi0/box_in_cupboard": ["1","0","0","1"],
-            "Pi0/box_out_of_opened_drawer": ["1","1","0","1"],
-            "Pi0/close_drawer": ["0","0","1","1"],
-            "Pi0/put_in_opened_drawer": ["1","1","0","0"],
-            "Pi0/sweep_to_dustpan": ["1","0","1","1"],
-            "Pi0/box_out_of_cupboard": ["0","1","0","1"],
-            "Pi0/broom_out_of_cupboard": ["1","0","0","1"],
-            "Pi0/open_drawer": ["0","1","1","0"],
-            "Pi0/rubbish_in_dustpan": ["1","0","1","0"],
-            "Pi0/take_out_of_opened_drawer": ["1","1","0","1"],
+            "Pi0/box_in_cupboard": ["0","0","1","0"],
+            "Pi0/box_out_of_opened_drawer": ["1","1","1","1"],
+            "Pi0/close_drawer": ["1","1","1","1"],
+            "Pi0/put_in_opened_drawer": ["1","1","1","1"],
+            "Pi0/sweep_to_dustpan": ["0","0","0","1"],
+            "Pi0/box_out_of_cupboard": ["0","0","1","1"],
+            "Pi0/broom_out_of_cupboard": ["1","0","1","1"],
+            "Pi0/open_drawer": ["0","0","0","1"],
+            "Pi0/rubbish_in_dustpan": ["0","1","1","0"],
+            "Pi0/take_out_of_opened_drawer": ["1","1","1","1"],
           
-            "Pi0.5/box_in_cupboard": ["0","0","1","1"],
-            "Pi0.5/box_out_of_opened_drawer": ["1","1","0","0"],
-            "Pi0.5/close_drawer": ["0","1","1","1"],
-            "Pi0.5/put_in_opened_drawer": ["1","0","0","1"],
-            "Pi0.5/sweep_to_dustpan": ["0","1","1","0"],
-            "Pi0.5/box_out_of_cupboard": ["1","1","0","1"],
-            "Pi0.5/broom_out_of_cupboard": ["0","0","1","1"],
-            "Pi0.5/open_drawer": ["1","0","1","0"],
-            "Pi0.5/rubbish_in_dustpan": ["0","1","0","1"],
-            "Pi0.5/take_out_of_opened_drawer": ["1","0","1","1"],
+            "Pi0.5/box_in_cupboard": ["0","1","1","1"],
+            "Pi0.5/box_out_of_opened_drawer": ["1","1","0","1"],
+            "Pi0.5/close_drawer": ["1","1","1","1"],
+            "Pi0.5/put_in_opened_drawer": ["1","1","1","1"],
+            "Pi0.5/sweep_to_dustpan": ["0","1","0","1"],
+            "Pi0.5/box_out_of_cupboard": ["0","1","0","1"],
+            "Pi0.5/broom_out_of_cupboard": ["0","1","1","1"],
+            "Pi0.5/open_drawer": ["0","0","0","1"],
+            "Pi0.5/rubbish_in_dustpan": ["0","0","1","1"],
+            "Pi0.5/take_out_of_opened_drawer": ["0","1","1","1"],
           
             // ----------- Compositional tasks -----------
-            "RVT-2/box_exchange": ["1","0","1","0"],
-            "RVT-2/put_in_and_close": ["1","1","0","1"],
-            "RVT-2/put_in_without_close": ["0","0","1","1"],
-            "RVT-2/put_two_in_different": ["1","0","1","1"],
-            "RVT-2/put_two_in_same": ["0","1","0","0"],
-            "RVT-2/retrieve_and_sweep": ["1","1","1","0"],
-            "RVT-2/sweep_and_drop": ["0","0","1","0"],
+            "RVT-2/box_exchange": ["0","0","0","1"],
+            "RVT-2/put_in_and_close": ["0","1","1","1"],
+            "RVT-2/put_in_without_close": ["1","1","1","1"],
+            "RVT-2/put_two_in_different": ["0","1","1","1"],
+            "RVT-2/put_two_in_same": ["1","1","1","1"],
+            "RVT-2/retrieve_and_sweep": ["0","0","0","0"],
+            "RVT-2/sweep_and_drop": ["0","0","0","0"],
             "RVT-2/take_out_and_close": ["1","1","0","1"],
-            "RVT-2/take_out_without_close": ["0","1","1","0"],
-            "RVT-2/take_two_out_of_different": ["1","0","1","0"],
-            "RVT-2/take_two_out_of_same": ["0","1","0","1"],
-            "RVT-2/transfer_box": ["1","1","1","1"],
-          
-            "3D-Diffuser-Actor/box_exchange": ["0","1","1","0"],
-            "3D-Diffuser-Actor/put_in_and_close": ["1","0","0","1"],
-            "3D-Diffuser-Actor/put_in_without_close": ["0","1","1","1"],
-            "3D-Diffuser-Actor/put_two_in_different": ["1","0","0","0"],
-            "3D-Diffuser-Actor/put_two_in_same": ["1","1","0","1"],
-            "3D-Diffuser-Actor/retrieve_and_sweep": ["0","0","1","1"],
-            "3D-Diffuser-Actor/sweep_and_drop": ["1","1","0","0"],
+            "RVT-2/take_out_without_close": ["0","0","0","1"],
+            "RVT-2/take_two_out_of_different": ["0","0","0","1"],
+            "RVT-2/take_two_out_of_same": ["0","0","0","1"],
+            "RVT-2/transfer_box": ["0","0","1","0"],
+
+            "3D-Diffuser-Actor/box_exchange": ["0","1","0","1"],
+            "3D-Diffuser-Actor/put_in_and_close": ["0","0","0","1"],
+            "3D-Diffuser-Actor/put_in_without_close": ["0","1","0","1"],
+            "3D-Diffuser-Actor/put_two_in_different": ["0","0","0","0"],
+            "3D-Diffuser-Actorput_two_in_same": ["0","1","0","1"],
+            "3D-Diffuser-Actor/retrieve_and_sweep": ["0","0","0","0"],
+            "3D-Diffuser-Actor/sweep_and_drop": ["0","1","0","0"],
             "3D-Diffuser-Actor/take_out_and_close": ["0","1","0","1"],
-            "3D-Diffuser-Actor/take_out_without_close": ["1","0","1","0"],
-            "3D-Diffuser-Actor/take_two_out_of_different": ["0","1","1","0"],
-            "3D-Diffuser-Actor/take_two_out_of_same": ["1","0","1","1"],
-            "3D-Diffuser-Actor/transfer_box": ["0","1","0","1"],
+            "3D-Diffuser-Actor/take_out_without_close": ["0","1","0","1"],
+            "3D-Diffuser-Actor/take_two_out_of_different": ["0","0","0","0"],
+            "3D-Diffuser-Actor/take_two_out_of_same": ["0","0","0","1"],
+            "3D-Diffuser-Actor/transfer_box": ["0","0","0","1"],
           
-            "Pi0/box_exchange": ["1","1","0","0"],
-            "Pi0/put_in_and_close": ["0","1","1","0"],
-            "Pi0/put_in_without_close": ["1","0","1","1"],
-            "Pi0/put_two_in_different": ["0","0","0","1"],
-            "Pi0/put_two_in_same": ["1","1","1","0"],
-            "Pi0/retrieve_and_sweep": ["0","1","0","1"],
-            "Pi0/sweep_and_drop": ["1","0","1","0"],
-            "Pi0/take_out_and_close": ["0","0","1","1"],
-            "Pi0/take_out_without_close": ["1","1","0","0"],
-            "Pi0/take_two_out_of_different": ["0","1","1","0"],
-            "Pi0/take_two_out_of_same": ["1","0","0","1"],
-            "Pi0/transfer_box": ["0","1","1","1"],
+            "Pi0/box_exchange": ["0","0","0","0"],
+            "Pi0/put_in_and_close": ["0","0","0","1"],
+            "Pi0/put_in_without_close": ["0","0","0","1"],
+            "Pi0/put_two_in_different": ["0","0","0","0"],
+            "Pi0/put_two_in_same": ["0","0","0","1"],
+            "Pi0/retrieve_and_sweep": ["0","0","0","0"],
+            "Pi0/sweep_and_drop": ["0","0","0","1"],
+            "Pi0/take_out_and_close": ["0","0","0","1"],
+            "Pi0/take_out_without_close": ["0","0","0","1"],
+            "Pi0/take_two_out_of_different": ["0","0","0","0"],
+            "Pi0/take_two_out_of_same": ["0","0","0","0"],
+            "Pi0/transfer_box": ["0","0","0","1"],
           
-            "Pi0.5/box_exchange": ["0","0","1","0"],
-            "Pi0.5/put_in_and_close": ["1","1","0","1"],
-            "Pi0.5/put_in_without_close": ["0","1","1","0"],
-            "Pi0.5/put_two_in_different": ["1","0","0","1"],
-            "Pi0.5/put_two_in_same": ["0","1","0","0"],
-            "Pi0.5/retrieve_and_sweep": ["1","0","1","1"],
-            "Pi0.5/sweep_and_drop": ["0","0","1","0"],
-            "Pi0.5/take_out_and_close": ["1","1","0","0"],
-            "Pi0.5/take_out_without_close": ["0","1","1","1"],
-            "Pi0.5/take_two_out_of_different": ["1","0","0","1"],
-            "Pi0.5/take_two_out_of_same": ["0","1","1","0"],
-            "Pi0.5/transfer_box": ["1","0","1","0"]
+            "Pi0.5/box_exchange": ["0","0","0","0"],
+            "Pi0.5/put_in_and_close": ["0","0","0","1"],
+            "Pi0.5/put_in_without_close": ["0","0","1","1"],
+            "Pi0.5/put_two_in_different": ["0","0","0","0"],
+            "Pi0.5/put_two_in_same": ["0","0","0","1"],
+            "Pi0.5/retrieve_and_sweep": ["0","0","0","0"], 
+            "Pi0.5/sweep_and_drop": ["0","0","1","1"],
+            "Pi0.5/take_out_and_close": ["0","0","1","0"],
+            "Pi0.5/take_out_without_close": ["0","0","0","1"],
+            "Pi0.5/take_two_out_of_different": ["0","0","0","0"],
+            "Pi0.5/take_two_out_of_same": ["0","0","0","0"],
+            "Pi0.5/transfer_box": ["0","0","1","1"]
           };
 
           async function updateVideoGroup(groupId, modelId, taskId) {
@@ -708,8 +713,10 @@
     <h2 class="title is-3">Compositional Task Completion under Disturbances</h2>
       
     <p class="content has-text-justified">
-      Because the language model output stays the same throughout the task, we can cache its output and re-evaluate the generated code using closed-loop visual feedback, which enables fast replanning using MPC. This enables VoxPoser to be robust to online disturbances.
+      For compositional tasks with various perturbations, including perturbed compositional-skill data in training effectively improves the model's robustness in performing compositional tasks. In comparison, adding perturbed atomic-skill data alone provides only limited gains in robustness.<br>
+      Both data design and architectural inductive biases (e.g., keyframe selection, 3D information integration) contribute to improved generalization and robustness.
     </p>
+    
 
     <!-- 三张雷达图 -->
     <div class="columns" style="margin-top:1em; margin-bottom:1em; text-align:center;">
@@ -748,18 +755,20 @@
         <span style="align-self:center;"> on Factor</span>
         <div class="select is-small is-rounded">
           <select id="factor-menu-3" onchange="updateVideoGroup3()">
-            <option value="box_in_cupboard">box_in_cupboard</option>
-            <option value="put_in_and_close">put_in_and_close</option>
-            <option value="put_in_without_close">put_in_without_close</option>
-            <option value="put_two_in_different">put_two_in_different</option>
-            <option value="put_two_in_same">put_two_in_same</option>
-            <option value="retrieve_and_sweep">retrieve_and_sweep</option>
-            <option value="sweep_and_drop">sweep_and_drop</option>
-            <option value="take_out_and_close">take_out_and_close</option>
-            <option value="take_out_without_close">take_out_without_close</option>
-            <option value="take_two_out_of_different">take_two_out_of_different</option>
-            <option value="take_two_out_of_same">take_two_out_of_same</option>
-            <option value="transfer_box">transfer_box</option>
+            <option value="No Factors">No Factors</option>
+            <option value="All Factors">All Factors</option>
+            <option value="MO_Color">MO_Color</option>
+            <option value="RO_Color">RO_Color</option>
+            <option value="MO_Texture">MO_Texture</option>
+            <option value="RO_Texture">RO_Texture</option>
+            <option value="MO_Size">MO_Size</option>
+            <option value="RO_Size">RO_Size</option>
+            <option value="Light_Color">Light_Color</option>
+            <option value="Table_Color">Table_Color</option>
+            <option value="Table_Texture">Table_Texture</option>
+            <option value="Distractor_Objects">Distractor_Objects</option>
+            <option value="Background_Texture">Background_Texture</option>
+            <option value="Camera_Pose">Camera_Pose</option>
           </select>
         </div>
     </div>
@@ -861,7 +870,8 @@
       <h2 class="title is-3">Bottlenecks in Hierarchical Architecturess</h2>
       
       <p class="content has-text-justified">
-        <li><strong>Behavioral Commonsense Reasoning</strong>: During a task where robot is setting the table, the user can specify behavioral preferences such as “I am left-handed”, which requires the robot to comprehend its meaning in the context of the task. VoxPoser decides that it should move the fork from the right side of the bowl to the left side.</li>
+        Explicit planning is essential, as it supports robust skill composition and underscores the role of hierarchical reasoning in complex long-horizon tasks.<br>
+        The bottlenecks of hierarchical architectures stem from three main issues: (i) the high-level planner may generate incorrect plans. (ii) the low-level policy may fail during execution. (iii) if the hierarchical system is not properly designed, failures at the high or low level are not effectively handled, leading to error accumulation and eventual task failure.
       </p>
       <br>
       <div style="text-align: center;">
@@ -869,13 +879,8 @@
       </div>
     </div>
 
-    <p class="content has-text-justified">
-      <li><strong>Behavioral Commonsense Reasoning</strong>: During a task where robot is setting the table, the user can specify behavioral preferences such as “I am left-handed”, which requires the robot to comprehend its meaning in the context of the task. VoxPoser decides that it should move the fork from the right side of the bowl to the left side.</li>
-    </p>
-
-    <br>
     <!-- 三个视频一行 -->
-    <div style="margin-top:1em; text-align:center; width:100%;">
+    <div style="margin-top:0em; text-align:center; width:100%;">
       <div id="video-grid-4" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1em; width:100%;">
         <div><video controls autoplay loop muted style="width:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">Vanilla</p></div>
         <div><video controls autoplay loop muted style="width:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">Rule-based</p></div>
