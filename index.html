@@ -143,7 +143,7 @@
             </span> -->
 
             <!-- Video Link. -->
-            <span class="link-block">
+            <!-- <span class="link-block">
               <a target="_blank" href=""
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
@@ -151,7 +151,7 @@
                 </span>
                 <span>Video</span>
               </a>
-            </span>
+            </span> -->
 
             <!-- Code Link. -->
             <span class="link-block">
@@ -733,30 +733,21 @@
 
     <!-- 四个视频一行 -->
     <div class="columns" style="margin-top:1em; text-align:center;">
-      <div id="video-grid-3" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1em;">
-        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L1</p></div>
-        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L2</p></div>
-        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L3</p></div>
-        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">L4</p></div>
+      <div id="video-grid-3" style="display:grid; grid-template-columns: 24.7% 23% 23% 23%; gap:1em;">
+        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">RVT-2</p></div>
+        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">3D-Diffuser-Actor</p></div>
+        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">Pi0</p></div>
+        <div><video controls autoplay loop muted><source src="" type="video/mp4"></video><p style="text-align:center;">Pi0.5</p></div>
       </div>
     </div>
 
     <!-- 下拉选项 -->
     <div style="margin-top:1.5em; text-align:center;">
-      <span style="align-self:center;">The performance of </span>
-        <div class="select is-small is-rounded">
-          <select id="model-menu-3" onchange="updateVideoGroup3()">
-            <option value="RVT-2">RVT-2</option>
-            <option value="3D-Diffuser-Actor">3D-Diffuser-Actor</option>
-            <option value="Pi0">Pi0</option>
-            <option value="Pi0.5">Pi0.5</option>
-          </select>
-        </div>
-        <span style="align-self:center;"> on Factor</span>
+      <span style="align-self:center;">The performance for factors </span>
         <div class="select is-small is-rounded">
           <select id="factor-menu-3" onchange="updateVideoGroup3()">
-            <option value="No Factors">No Factors</option>
-            <option value="All Factors">All Factors</option>
+            <option value="All_Factors">All_Factors</option>
+            <option value="No_Factors">No_Factors</option>
             <option value="MO_Color">MO_Color</option>
             <option value="RO_Color">RO_Color</option>
             <option value="MO_Texture">MO_Texture</option>
@@ -775,83 +766,53 @@
 
     <script>
       const SR_DATA_RARAR = {
-        // ----------- Compositional tasks -----------
-        "RVT-2/box_in_cupboard": ["1","0","1","0"],
-        "RVT-2/put_in_and_close": ["1","1","0","1"],
-        "RVT-2/put_in_without_close": ["0","0","1","1"],
-        "RVT-2/put_two_in_different": ["1","0","1","1"],
-        "RVT-2/put_two_in_same": ["0","1","0","0"],
-        "RVT-2/retrieve_and_sweep": ["1","1","1","0"],
-        "RVT-2/sweep_and_drop": ["0","0","1","0"],
-        "RVT-2/take_out_and_close": ["1","1","0","1"],
-        "RVT-2/take_out_without_close": ["0","1","1","0"],
-        "RVT-2/take_two_out_of_different": ["1","0","1","0"],
-        "RVT-2/take_two_out_of_same": ["0","1","0","1"],
-        "RVT-2/transfer_box": ["1","1","1","1"],
-      
-        "3D-Diffuser-Actor/box_exchange": ["0","1","1","0"],
-        "3D-Diffuser-Actor/put_in_and_close": ["1","0","0","1"],
-        "3D-Diffuser-Actor/put_in_without_close": ["0","1","1","1"],
-        "3D-Diffuser-Actor/put_two_in_different": ["1","0","0","0"],
-        "3D-Diffuser-Actor/put_two_in_same": ["1","1","0","1"],
-        "3D-Diffuser-Actor/retrieve_and_sweep": ["0","0","1","1"],
-        "3D-Diffuser-Actor/sweep_and_drop": ["1","1","0","0"],
-        "3D-Diffuser-Actor/take_out_and_close": ["0","1","0","1"],
-        "3D-Diffuser-Actor/take_out_without_close": ["1","0","1","0"],
-        "3D-Diffuser-Actor/take_two_out_of_different": ["0","1","1","0"],
-        "3D-Diffuser-Actor/take_two_out_of_same": ["1","0","1","1"],
-        "3D-Diffuser-Actor/transfer_box": ["0","1","0","1"],
-      
-        "Pi0/box_exchange": ["1","1","0","0"],
-        "Pi0/put_in_and_close": ["0","1","1","0"],
-        "Pi0/put_in_without_close": ["1","0","1","1"],
-        "Pi0/put_two_in_different": ["0","0","0","1"],
-        "Pi0/put_two_in_same": ["1","1","1","0"],
-        "Pi0/retrieve_and_sweep": ["0","1","0","1"],
-        "Pi0/sweep_and_drop": ["1","0","1","0"],
-        "Pi0/take_out_and_close": ["0","0","1","1"],
-        "Pi0/take_out_without_close": ["1","1","0","0"],
-        "Pi0/take_two_out_of_different": ["0","1","1","0"],
-        "Pi0/take_two_out_of_same": ["1","0","0","1"],
-        "Pi0/transfer_box": ["0","1","1","1"],
-      
-        "Pi0.5/box_exchange": ["0","0","1","0"],
-        "Pi0.5/put_in_and_close": ["1","1","0","1"],
-        "Pi0.5/put_in_without_close": ["0","1","1","0"],
-        "Pi0.5/put_two_in_different": ["1","0","0","1"],
-        "Pi0.5/put_two_in_same": ["0","1","0","0"],
-        "Pi0.5/retrieve_and_sweep": ["1","0","1","1"],
-        "Pi0.5/sweep_and_drop": ["0","0","1","0"],
-        "Pi0.5/take_out_and_close": ["1","1","0","0"],
-        "Pi0.5/take_out_without_close": ["0","1","1","1"],
-        "Pi0.5/take_two_out_of_different": ["1","0","0","1"],
-        "Pi0.5/take_two_out_of_same": ["0","1","1","0"],
-        "Pi0.5/transfer_box": ["1","0","1","0"]
+        "No_Factors": ["1","0","1","1"],
+        "All_Factors": ["1","0","0","0"],
+        "MO_Color": ["1","1","1","1"],
+        "RO_Color": ["1","0","0","0"],
+        "MO_Texture": ["1","0","0","1"],
+        "RO_Texture": ["0","0","0","0"],
+        "MO_Size": ["1","0","0","0"],
+        "RO_Size": ["1","1","0","0"],
+        "Light_Color": ["1","0","0","0"],
+        "Table_Color": ["1","1","1","1"],
+        "Table_Texture": ["1","0","0","0"],
+        "Distractor_Objects": ["1","1","0","0"],
+        "Background_Texture": ["1","1","0","1"],
+        "Camera_Pose": ["1","1","0","0"],
       };
   
-      async function updateVideoGroupPerturbations(groupId, modelId, factorId) {
-      const model = document.getElementById(modelId).value;
+      async function updateVideoGroupPerturbations(groupId, factorId) {
       const factor = document.getElementById(factorId).value;
       const grid = document.getElementById(groupId).children;
   
       // 从内置 JSON 里取状态
-      const key = `${model}/${factor}`;
+      const key = `${factor}`;
       let srStatus = SR_DATA_RARAR[key] || ["0", "0", "0", "0"];
-  
+      
       for (let i = 0; i < 4; i++) {
-        const videoFile = `media/exp/scaling/${model}/${factor}/L${i+1}.mp4`;
+        if (i == 0) {
+          model = "RVT-2";
+        } else if (i == 1) {
+          model = "3D-Diffuser-Actor";
+        } else if (i == 2) {
+          model = "Pi0";
+        } else if (i == 3) {
+          model = "Pi0.5";
+        };
+        const videoFile = `media/exp/perturbations/${factor}/${model}.mp4`;
         grid[i].querySelector("source").src = videoFile;
         grid[i].querySelector("video").load();
   
         // 更新状态文本
         const success = srStatus[i] === "1";
         const label = grid[i].querySelector("p");
-        label.innerHTML = `L${i+1} <span style="color:${success ? 'green' : 'red'};">(${success ? 'Success' : 'Fail'})</span>`;
+        label.innerHTML = `${model} <span style="color:${success ? 'green' : 'red'};">(${success ? 'Success' : 'Fail'})</span>`;
       }
     }
   
     function updateVideoGroup3() {
-      updateVideoGroupPerturbations("video-grid-3", "model-menu-3", "factor-menu-3");
+      updateVideoGroupPerturbations("video-grid-3", "factor-menu-3");
     }
   
     // 默认初始化
@@ -976,10 +937,10 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-widescreen content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{anonymous2025robohiman,
+    <pre><code>@inproceedings{anonymous2025robohiman,
   title={RoboHiMan: A Hierarchical Evaluation Paradigm for Compositional Generalization in Long-Horizon Manipulation},
   author={Anonymous},
-  journal={Under Review},
+  booktitle={Under Review},
   year={2025}
 }</code></pre>
   </div>
