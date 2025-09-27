@@ -18,50 +18,6 @@
     gtag('config', 'G-FV4ZJ9PVSV');
   </script>
 
-  <script>
-
-    function updateInteractive() {
-      var task = document.getElementById("interative-menu").value;
-
-      console.log("interactive", task)
-
-      // if task does not contain the string "towel"
-      if (task.indexOf("towel") == -1) {
-        var video = document.getElementById("interactive-video");
-        video.src = "media/videos/" + 
-                    task + 
-                    ".mp4"
-        video.play();
-
-        var html = document.getElementById("interactive-html-1");
-        html.src = "media/interactive/" + 
-                    task + 
-                    ".html"
-
-        // hide the second iframe container
-        var iframeContainer2 = document.getElementById("second-iframe-container");
-        iframeContainer2.style.display = "none";
-      } else {
-        var video = document.getElementById("interactive-video");
-        video.src = "media/videos/hang-towel.mp4"
-        video.play();
-
-        var html1 = document.getElementById("interactive-html-1");
-        html1.src = "media/interactive/hang-towel-1.html"
-
-        // show and set the source for the second iframe
-        var html2 = document.getElementById("interactive-html-2");
-        html2.src = "media/interactive/hang-towel-2.html"
-
-        // show the second iframe container
-        var iframeContainer2 = document.getElementById("second-iframe-container");
-        iframeContainer2.style.display = "block";
-      }
-    }
-
-
-
-  </script>
 
 <script>
   function updateVideo() {
@@ -843,14 +799,14 @@
     <!-- 三个视频一行 -->
     <div style="margin-top:0em; text-align:center; width:100%;">
       <div id="video-grid-4" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1em; width:100%;">
-        <div><video controls autoplay loop muted style="width:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">Vanilla</p></div>
-        <div><video controls autoplay loop muted style="width:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">Rule-based</p></div>
-        <div><video controls autoplay loop muted style="width:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">VLM-based</p></div>
+        <div><video controls autoplay loop muted style="height:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">Vanilla</p></div>
+        <div><video controls autoplay loop muted style="height:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">Rule-based</p></div>
+        <div><video controls autoplay loop muted style="height:100%;"><source src="" type="video/mp4"></video><p style="text-align:center;">VLM-based</p></div>
       </div>
     </div>
 
     <!-- 下拉选项 -->
-    <div style="margin-top:1.5em; text-align:center;">
+    <div style="margin-top:3em; text-align:center;">
       <span style="align-self:center;">The performance </span>
         <span style="align-self:center;"> on Task</span>
         <div class="select is-small is-rounded">
@@ -884,11 +840,74 @@
     <script>
       const SR_DATA_BOTTLENECKS = {
         // ----------- Bottlenecks tasks -----------
-        "Vanilla/box_in_cupboard": ["1","0","1","0"],
+        "Vanilla/box_exchange": ["0"],
+        "Vanilla/box_in_cupboard": ["0"],
+        "Vanilla/box_out_of_cupboard": ["0"],
+        "Vanilla/box_out_of_opened_drawer": ["1"],
+        "Vanilla/broom_out_of_cupboard": ["0"],
+        "Vanilla/close_drawer": ["1"],
+        "Vanilla/open_drawer": ["1"],
+        "Vanilla/put_in_and_close": ["0"],
+        "Vanilla/put_in_opened_drawer": ["0"],
+        "Vanilla/put_in_without_close": ["0"],
+        "Vanilla/put_two_in_different": ["0"],
+        "Vanilla/put_two_in_same": ["0"],
+        "Vanilla/retrieve_and_sweep": ["0"],
+        "Vanilla/rubbish_in_dustpan": ["0"],
+        "Vanilla/sweep_to_dustpan": [""],
+        "Vanilla/sweep_and_drop": ["0"],
+        "Vanilla/take_out_and_close": ["0"],
+        "Vanilla/take_out_of_opened_drawer": ["1"],
+        "Vanilla/take_out_without_close": ["0"],
+        "Vanilla/take_two_out_of_different": ["0"],
+        "Vanilla/take_two_out_of_same": ["0"],
+        "Vanilla/transfer_box": ["0"],
 
-        "Rule-based/box_in_cupboard": ["1","0","1","0"],
+        "Rule-based/box_exchange": ["1"],
+        "Rule-based/box_in_cupboard": ["0"],
+        "Rule-based/box_out_of_cupboard": ["1"],
+        "Rule-based/box_out_of_opened_drawer": ["1"],
+        "Rule-based/broom_out_of_cupboard": ["1"],
+        "Rule-based/close_drawer": ["1"],
+        "Rule-based/open_drawer": ["1"],
+        "Rule-based/put_in_and_close": ["1"],
+        "Rule-based/put_in_opened_drawer": ["1"],
+        "Rule-based/put_in_without_close": ["1"],
+        "Rule-based/put_two_in_different": ["1"],
+        "Rule-based/put_two_in_same": ["1"],
+        "Rule-based/retrieve_and_sweep": ["0"],
+        "Rule-based/rubbish_in_dustpan": ["1"],
+        "Rule-based/sweep_to_dustpan": ["0"],
+        "Rule-based/sweep_and_drop": ["0"],
+        "Rule-based/take_out_and_close": ["1"],
+        "Rule-based/take_out_of_opened_drawer": ["1"],
+        "Rule-based/take_out_without_close": ["1"],
+        "Rule-based/take_two_out_of_different": ["1"],
+        "Rule-based/take_two_out_of_same": ["1"],
+        "Rule-based/transfer_box": ["0"],
 
-        "VLM-based/box_in_cupboard": ["1","0","1","0"],
+        "VLM-based/box_exchange": ["0"],
+        "VLM-based/box_in_cupboard": ["0"],
+        "VLM-based/box_out_of_cupboard": ["1"],
+        "VLM-based/box_out_of_opened_drawer": ["1"],
+        "VLM-based/broom_out_of_cupboard": ["1"],
+        "VLM-based/close_drawer": ["1"],
+        "VLM-based/open_drawer": ["1"],
+        "VLM-based/put_in_and_close": ["0"],
+        "VLM-based/put_in_opened_drawer": ["0"],
+        "VLM-based/put_in_without_close": ["1"],
+        "VLM-based/put_two_in_different": ["0"],
+        "VLM-based/put_two_in_same": ["0"],
+        "VLM-based/retrieve_and_sweep": ["0"],
+        "VLM-based/rubbish_in_dustpan": ["1"],
+        "VLM-based/sweep_to_dustpan": ["0"],
+        "VLM-based/sweep_and_drop": ["0"],
+        "VLM-based/take_out_and_close": ["0"],
+        "VLM-based/take_out_of_opened_drawer": ["1"],
+        "VLM-based/take_out_without_close": ["0"],
+        "VLM-based/take_two_out_of_different": ["0"],
+        "VLM-based/take_two_out_of_same": ["0"],
+        "VLM-based/transfer_box": ["0"],
       };
   
       async function updateVideoGroupBottlenecks(groupId, mode, taskId) {
@@ -897,10 +916,10 @@
   
       // 从内置 JSON 里取状态
       const key = `${mode}/${task}`;
-      let srStatus = SR_DATA_BOTTLENECKS[key] || ["0", "0", "0"];
   
       const videoFile = `media/exp/bottlenecks/${mode}/${task}.mp4`;
       
+      let i;
       if (mode === "Vanilla") {
         i = 0;
       } else if (mode === "Rule-based") {
@@ -913,7 +932,7 @@
       grid[i].querySelector("video").load();
 
       // 更新状态文本
-      const success = srStatus[i] === "1";
+      const success =  SR_DATA_BOTTLENECKS[key][0] === "1";
       const label = grid[i].querySelector("p");
       label.innerHTML = `mode: ${mode} <span style="color:${success ? 'green' : 'red'};">(${success ? 'Success' : 'Fail'})</span>`;
     }
